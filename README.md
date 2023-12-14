@@ -4,5 +4,5 @@ de lógica. Asegurate de que el resultado final sea identico al proporcionado, e
 elegir el o los tipos de layouts que utilizarás. Mediante figma obtén el tipo de fuente, colores etc
 que debes utilizar en tu aplicación.
 
-![](img/Captura.png)
-![](img/Captura2.png)
+![](img/Captura.PNG)
+![](img/Captura2.PNG)
