@@ -7,97 +7,31 @@
     android:background="#353434"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="371sp"
-        android:height="96sp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="CONTADOR"
-        android:textColor="@color/white"
-        android:textSize="64sp"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19" />
+        app:layout_constraintVertical_bias="1.0"
+        app:navGraph="@navigation/nav_graph" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:width="118sp"
-        android:height="300sp"
-        android:fontFamily="@font/poppins_thin"
-        android:text="0"
-        android:textColor="@color/white"
-        android:textSize="200sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.23000002" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
-
-        <Button
-            android:id="@+id/Boton_menos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:width="120dp"
-            android:backgroundTint="#1E1E1E"
-            android:fontFamily="@font/poppins_bold"
-            android:text="-"
-            android:textAlignment="center"
-            android:textSize="20dp" />
-
-        <Button
-            android:id="@+id/Boton_Reset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1"
-            android:width="120dp"
-            android:backgroundTint="#201F1F"
-            android:fontFamily="@font/poppins_bold"
-            android:text="RESET"
-            android:textAlignment="center"
-            android:textSize="20dp" />
-
-        <Button
-            android:id="@+id/Boton_Mas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:width="120dp"
-            android:backgroundTint="#1E1D1D"
-            android:fontFamily="@font/poppins_bold"
-            android:text="+"
-            android:textAlignment="center"
-            android:textSize="20dp" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/texto_LoginCorrecto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="By JoseMariaPerezVazquez "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/bottom_navigation_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

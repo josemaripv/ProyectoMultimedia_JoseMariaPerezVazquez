@@ -1,12 +1,8 @@
-# Ejercicio 02
+# Ejercicio 03 
 
-Crea la segunda pantalla en el mismo proyecto(investiga como). Deberás realizar un lógin tal y como
-se muestra en el figma, en el caso de que el usuario y contraseña sean admin en el TextView de abajo
-saldrá “Usuario y contraseña correcta” en caso contrario “Usuario o contraseña incorrecta”.
-Investigar por vuestra cuenta como iniciar la aplicación en la Activity login. Pista → se configura
-en el AndroidManifest.xml. Una vez que iniciemos el login deberá pasar a la pantalla del contador
-pasando el dato del nombre del usuario (aparecerá en la parte baja de la pantalla de contador donde
-ponía “by nombre_alumno”).(ACTUALIZADO)
+Cambia el proyecto para que el segundo activity en vez de ser el contador sea un activity con un
+FrameLayout en el que se verán los diferentes fragments (mínimo home, contador, salir) y por
+otra parte una barra de navegación con la que podamos viajar entre los diferentes fragments.
 
 ## Pantalla Login
 
@@ -27,9 +23,20 @@ de Login la cual es la pantalla del contador.
 - **Botón para darle click e iniciar sesión**
 - **TextView** para mostrar si el usuario y la contraseña introducidos han sido correctos
 
+## Pantalla Home (Fragment)
+
+![](img/home.png)
+
+Este fragmento de la pantalla de inicio muestra en primer lugar un mensaje de bienvenida para el 
+usuario junto a una foto para el aspecto visual
+
+### Componentes Utilizados:
+- **TextView** para mostrar el mensaje de bienvenida
+- **ImageView** para poder poner una foto en la pantalla de inicio
+
 ## Pantalla Contador
 
-![](img/loginCorrecto.png)
+![](img/contador.png)
 
 Realizamos una pantalla de contador con un 0 inicial en el medio, los botones para sumar, restar
 y resetear el contador.
@@ -45,8 +52,35 @@ ella.
 - **Botones para realizar las operaciones mencionadas anteriormente**
 - **TextView** para mostrar el nombre de usuario en la parte inferior de la aplicación
 
+## Pantalla Exit (Fragment)
+
+![](img/exit.png)
+
+Este fragmento de la pantalla de salida muestra en primer lugar una imagen de warning para avisar
+al usuario de forma visual como que va a salir de la aplición, a continuación, mostramos el mensaje
+para verificar que el usuario desea salir de la aplicación y acto seguido se encuentra el boton
+que al darle click sale de la aplicación
+
+### Componentes Utilizados:
+- **TextView** para mostrar el mensaje de si desea salir de la aplicación
+- **ImageView** para la foto de warning en la pantalla de salida
+- **Button** para el boton el cual nos da posibilidad de salir de la aplicación
+
+## Menú de Navegación
+
+El menú de navigación de la parte inferior permite al usuario poder navegar entre las diferentes
+pantallas de la aplicación
+
+![](img/menu.png)
+
+### Componentes Utilizados:
+- **bottom_navigation_menu** en el cual se encuentra los tres diferentes items: **Home** para la
+    pantalla de inicio, **Contador** para la pantalla de contador y **Salir** para la pantalla de 
+    salir.
+    En él te da la opción para elegir diferentes imagenes/logos para poner en tu menú.
+
 ## Versión de Android
-**La version del android es la 21 que tenia un porcentaje del 99,6%**
+**La version del android es la 21 que tiene un porcentaje del 99,6%**
 
 ## Programa utilizado
 **Android Studio**

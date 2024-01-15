@@ -1,9 +1,13 @@
 package com.vedruna.perezvazquez01;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,10 +16,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String username = getIntent().getStringExtra("usuario");
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        NavController navController = navHostFragment.getNavController();
 
 
-        TextView tvUsername = findViewById(R.id.texto_LoginCorrecto);
-        tvUsername.setText("by " + username);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+
+            if (item.getItemId() == R.id.navigation_home) {
+                navController.navigate(R.id.homeFragment);
+            } else if (item.getItemId() == R.id.navigation_contador) {
+                navController.navigate(R.id.contadorFragment);
+            }
+            else {
+                navController.navigate(R.id.exitFragment);
+            }
+            return true;
+        });
     }
 }
