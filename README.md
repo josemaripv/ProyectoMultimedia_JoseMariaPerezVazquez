@@ -1,8 +1,9 @@
-# Ejercicio 03 
+# Ejercicio 04 
 
-Cambia el proyecto para que el segundo activity en vez de ser el contador sea un activity con un
-FrameLayout en el que se verán los diferentes fragments (mínimo home, contador, salir) y por
-otra parte una barra de navegación con la que podamos viajar entre los diferentes fragments.
+Añade un Fragment mas que se llame API y sigue el tutorial (para la parte del consumo de la API)
+proporcionado para consumir un API con android(en esta entrega no tendrás que reflejar los 
+en la interfaz gráfica, solo en el log). Por otro lado crea un microservicio con una sola entidad.
+
 
 ## Pantalla Login
 
@@ -52,6 +53,32 @@ ella.
 - **Botones para realizar las operaciones mencionadas anteriormente**
 - **TextView** para mostrar el nombre de usuario en la parte inferior de la aplicación
 
+## Pantalla API (Fragment)
+
+En la pantalla no se muestra nada en primer lugar solo consume una API creada en SpringBoot que 
+hemos inicializado anteriormente.
+
+### Comprobación de que funciona la API
+![](img/api.png)
+
+### API funcionado en Android
+![](img/android.png)
+
+### Funcionamiento de las clases
+**Interfaz CRUDInterface**: Establece las operaciones CRUD para interactuar con la API. En este 
+proyecto usamos un **getAll** para que nos de todos los productos.
+
+**Clase Product**:  Representa la clase de los **Productos** con su **ID, nombre y precio** junto al 
+método **toString** para el tema visual.
+
+**Clase Constants**: Una clase con constantes donde se encuentra la **URL** de la API. En primer
+lugar tiene la local de mi dispositivo y en segundo lugar la de mi centro educativo en casa de que 
+fuera necesario.
+
+**Fragment**: Creación de un fragment que se añade a la **barra de navegación** donde da lugar a la
+pestaña donde se consume la API aunque actualmente no tiene ningún funcionamiento más ni ninguna
+imagen de visualización.
+
 ## Pantalla Exit (Fragment)
 
 ![](img/exit.png)
@@ -84,3 +111,6 @@ pantallas de la aplicación
 
 ## Programa utilizado
 **Android Studio**
+
+## Autor
+**José María Pérez Vázquez**

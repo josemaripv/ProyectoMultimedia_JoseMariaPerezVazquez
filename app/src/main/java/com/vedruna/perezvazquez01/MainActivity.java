@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
                 navController.navigate(R.id.homeFragment);
             } else if (item.getItemId() == R.id.navigation_contador) {
                 navController.navigate(R.id.contadorFragment);
+            } else if(item.getItemId() == R.id.navigation_API){
+                navController.navigate(R.id.APIFragment);
             }
             else {
                 navController.navigate(R.id.exitFragment);

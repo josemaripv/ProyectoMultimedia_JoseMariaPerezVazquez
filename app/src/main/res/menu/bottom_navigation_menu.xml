@@ -12,9 +12,15 @@
         android:icon="@drawable/ic_contador"
         android:visible="true" />
     <item
+        android:id="@+id/navigation_API"
+        android:title="API"
+        android:icon="@drawable/ic_api"
+        android:visible="true" />
+    <item
         android:id="@+id/navigation_salir"
         android:title="Salir"
         android:icon="@drawable/ic_salir"
         android:visible="true" />
+
 
 </menu>

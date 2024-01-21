@@ -20,4 +20,9 @@
         android:name="com.vedruna.perezvazquez01.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/APIFragment"
+        android:name="com.vedruna.perezvazquez01.APIFragment"
+        android:label="fragment_a_p_i"
+        tools:layout="@layout/fragment_a_p_i" />
 </navigation>
