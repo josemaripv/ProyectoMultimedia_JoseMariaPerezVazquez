@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="#CA6647"
-                android:text="Salilr"
+                android:text="Salir"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="126dp"
                 tools:layout_editor_absoluteY="272dp" />
