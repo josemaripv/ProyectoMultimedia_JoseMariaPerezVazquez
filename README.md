@@ -1,28 +1,25 @@
-# Ejercicio 04 
+# Proyecto Final Multimedia 
 
-Añade un Fragment mas que se llame API y sigue el tutorial (para la parte del consumo de la API)
-proporcionado para consumir un API con android(en esta entrega no tendrás que reflejar los 
-en la interfaz gráfica, solo en el log). Por otro lado crea un microservicio con una sola entidad.
-
+Aplicación de Android Studio consumiento una API con un sistema de logueo a través de Google,
+con un Home donde aparece una lista con los elementos de la API, CRUD y una ventana para volver
+a la pantalla de logueo
 
 ## Pantalla Login
 
 ![](img/login.png)
 
 La pantalla principal nos encontramos el Login en el cual hay dos campos para insertar el usuario y
-la contraseña. Si el usuario o la contraseña es incorrecta saltará un mensaje de error como podemos
-observar en la siguiente imagen
+la contraseña. Nosotros utilizaremos el login de Google que hemos implementado y verificamos que el
+login de Google ha sido correcto a través de un Toast
 
-![](img/error.png)
+![](img/loginToast.png)
 
-Si el usuario y contraseña son correctos accederemos a la siguiente pantalla al hacer click al boton
-de Login la cual es la pantalla del contador.
+La clase activity_login es una implementación en Android que maneja el proceso de inicio de sesión
+en una aplicación. La aplicación permite a los usuarios iniciar sesión de dos maneras: a través de
+credenciales de usuario (nombre de usuario y contraseña) o mediante el inicio de sesión de Google.
+Nosotros usamos el de Google como hemos mencionado anteriormente.
 
-### Componentes Utilizados:
-- **TextInputEditText** para el nombre de usuario
-  **TextInputEditText** para la contraseña 
-- **Botón para darle click e iniciar sesión**
-- **TextView** para mostrar si el usuario y la contraseña introducidos han sido correctos
+
 
 ## Pantalla Home (Fragment)
 

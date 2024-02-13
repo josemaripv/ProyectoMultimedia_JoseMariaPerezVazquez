@@ -7,15 +7,22 @@
         android:icon="@drawable/ic_home"
         android:visible="true" />
     <item
-        android:id="@+id/navigation_contador"
-        android:title="Contador"
-        android:icon="@drawable/ic_contador"
+        android:id="@+id/navigation_create"
+        android:title="Añadir"
+        android:icon="@drawable/ic_add"
         android:visible="true" />
     <item
-        android:id="@+id/navigation_API"
-        android:title="API"
-        android:icon="@drawable/ic_api"
+        android:id="@+id/navigation_update"
+        android:title="Actualizar"
+        android:icon="@drawable/ic_update"
         android:visible="true" />
+    <item
+        android:id="@+id/navigation_delete"
+        android:title="Eliminar"
+        android:icon="@drawable/ic_delete"
+        android:visible="true" />
+
+
     <item
         android:id="@+id/navigation_salir"
         android:title="Salir"

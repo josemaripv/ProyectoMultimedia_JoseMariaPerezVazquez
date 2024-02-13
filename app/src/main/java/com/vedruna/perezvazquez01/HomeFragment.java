@@ -1,64 +1,118 @@
 package com.vedruna.perezvazquez01;
 
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import com.vedruna.perezvazquez01.adapters.PersonajeAdapter;
+import com.vedruna.perezvazquez01.interfaces.CRUDInterface;
+import com.vedruna.perezvazquez01.model.Personaje;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * El fragmento `HomeFragment` representa la pantalla principal de la aplicación.
+ *
+ * Muestra una lista de personajes obtenidos del servidor mediante la interfaz `CRUDInterface`.
  */
 public class HomeFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    /**
+     * Lista que contiene objetos de la clase Personaje.
+     */
+    List<Personaje> personajeList;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    /**
+     * Instancia de la interfaz CRUDInterface para realizar operaciones CRUD (Create, Read, Update, Delete) en el servidor.
+     */
+    CRUDInterface crudInterface;
 
+    /**
+     * Vista de lista utilizada para mostrar la lista de personajes.
+     */
+    ListView listView;
+
+    /**
+     * Constructor vacío requerido por la arquitectura de fragmentos de Android.
+     */
     public HomeFragment() {
         // Required empty public constructor
     }
 
     /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
+     * Método llamado al crear el fragmento.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
+     * @param savedInstanceState Datos de estado del fragmento.
      */
-    // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
+    /**
+     * Método para obtener la lista de personajes del servidor mediante Retrofit y actualizar la interfaz de usuario.
+     */
+    private void getAll() {
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.1.145:8080/").
+                addConverterFactory(GsonConverterFactory.create()).build();
+        crudInterface = retrofit.create(CRUDInterface.class);
+        Call<List<Personaje>> call = crudInterface.getAll();
+        call.enqueue(new Callback<List<Personaje>>() {
+            @Override
+            public void onResponse(Call<List<Personaje>> call, Response<List<Personaje>> response) {
+                if (!response.isSuccessful()) {
+                    Log.e("Response err ", response.message());
+                    return;
+                }
+                // Obtener la lista de personajes del cuerpo de la respuesta
+                personajeList = response.body();
+                // Crear un adaptador personalizado para la lista de personajes
+                PersonajeAdapter productAdapter = new PersonajeAdapter(requireContext(), personajeList);
+                // Establecer el adaptador en la vista de lista
+                listView.setAdapter(productAdapter);
+                // Imprimir información de los personajes en el registro
+                personajeList.forEach(p -> Log.i("Personajes: ", p.toString()));
+            }
+
+            @Override
+            public void onFailure(Call<List<Personaje>> call, Throwable t) {
+                // Manejar fallos en la llamada al servidor
+                Log.e("Throw err:", t.getMessage());
+            }
+        });
+    }
+
+    /**
+     * Método llamado para crear y devolver la vista del fragmento.
+     * Infla el diseño del fragmento y configura los elementos de la interfaz de usuario.
+     *
+     * @param inflater           Inflador utilizado para inflar la vista.
+     * @param container          Contenedor que contendrá la vista del fragmento.
+     * @param savedInstanceState Datos de estado del fragmento.
+     * @return La vista del fragmento.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        listView = view.findViewById(R.id.listView);
+
+        // Obtener la lista de personajes y actualizar la interfaz de usuario
+        getAll();
+        return view;
     }
 }

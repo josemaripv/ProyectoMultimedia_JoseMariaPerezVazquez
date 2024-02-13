@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "357509495921",
+    "project_id": "proyectomultimedia2eva-b46b2",
+    "storage_bucket": "proyectomultimedia2eva-b46b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357509495921:android:7563b88f945fe6ae0aafd0",
+        "android_client_info": {
+          "package_name": "com.vedruna.perezvazquez01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357509495921-mtqhaj5mh43m1diaqvqk9lkpdm52jbfd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAG3_ikDU14x6ZEQdJBFMmv0RiWDq6pOFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357509495921-mtqhaj5mh43m1diaqvqk9lkpdm52jbfd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

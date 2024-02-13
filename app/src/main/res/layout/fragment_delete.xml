@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/konoha"
-    tools:context=".ExitFragment">
+    tools:context=".DeleteFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:src="@drawable/sharingan" />
 
         <LinearLayout
-            android:layout_width="366dp"
+            android:layout_width="336dp"
             android:layout_height="331dp"
             android:layout_gravity="center"
             android:orientation="vertical"
@@ -29,7 +29,7 @@
                 android:id="@+id/textViewSalir"
                 android:layout_width="366dp"
                 android:layout_height="29dp"
-                android:text="Pulse el botón si desea salir de la aplicación"
+                android:text="ID:"
                 android:textColor="#000000"
                 android:textSize="18dp"
                 android:textStyle="bold"
@@ -39,13 +39,27 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.48000002" />
 
+            <EditText
+                android:id="@+id/editTextIDdelete"
+                android:layout_width="369dp"
+                android:layout_height="wrap_content"
+                android:hint="Ingrese el ID"
+                android:inputType="numberDecimal"
+                android:minHeight="48dp"
+                android:textColorHighlight="#9BB2BC"
+                android:textColorLink="#0D3444"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSalir"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewSalir" />
+
             <Button
                 android:id="@+id/buttonSalir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="#CA6647"
-                android:text="Salilr"
+                android:text="Borrar Personaje"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="126dp"
                 tools:layout_editor_absoluteY="272dp" />
@@ -63,4 +77,5 @@
             app:layout_constraintTop_toBottomOf="@+id/buttonActualizarPersonaje" />
 
     </LinearLayout>
+
 </FrameLayout>

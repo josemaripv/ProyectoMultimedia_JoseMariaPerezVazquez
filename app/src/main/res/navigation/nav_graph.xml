@@ -6,10 +6,10 @@
     app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/contadorFragment"
-        android:name="com.vedruna.perezvazquez01.ContadorFragment"
-        android:label="fragment_contador"
-        tools:layout="@layout/fragment_contador" />
+        android:id="@+id/CreateFragment"
+        android:name="com.vedruna.perezvazquez01.CreateFragment"
+        android:label="fragment_create"
+        tools:layout="@layout/fragment_create" />
     <fragment
         android:id="@+id/exitFragment"
         android:name="com.vedruna.perezvazquez01.ExitFragment"
@@ -19,10 +19,28 @@
         android:id="@+id/homeFragment"
         android:name="com.vedruna.perezvazquez01.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_CreateFragment"
+            app:destination="@id/CreateFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_APIFragment"
+            app:destination="@id/UpdateFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_deleteFragment"
+            app:destination="@id/deleteFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_exitFragment"
+            app:destination="@id/exitFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/APIFragment"
-        android:name="com.vedruna.perezvazquez01.APIFragment"
-        android:label="fragment_a_p_i"
-        tools:layout="@layout/fragment_a_p_i" />
+        android:id="@+id/UpdateFragment"
+        android:name="com.vedruna.perezvazquez01.UpdateFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" />
+    <fragment
+        android:id="@+id/deleteFragment"
+        android:name="com.vedruna.perezvazquez01.DeleteFragment"
+        android:label="fragment_delete"
+        tools:layout="@layout/fragment_delete" />
 </navigation>

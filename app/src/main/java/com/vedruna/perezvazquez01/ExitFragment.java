@@ -1,5 +1,7 @@
 package com.vedruna.perezvazquez01;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,72 +11,81 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link ExitFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * El fragmento `ExitFragment` representa la pantalla de salida en la aplicación.
+ *
+ * Permite al usuario cerrar sesión y regresar a la pantalla de inicio de sesión.
+ * Utiliza Firebase Authentication para gestionar la sesión del usuario.
  */
 public class ExitFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    /**
+     * Instancia de FirebaseAuth para gestionar la autenticación del usuario.
+     */
+    FirebaseAuth firebaseAuth;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    /**
+     * Constructor vacío requerido por la arquitectura de fragmentos de Android.
+     */
     public ExitFragment() {
         // Required empty public constructor
     }
 
     /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
+     * Método llamado al crear el fragmento.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ExitFragment.
+     * @param savedInstanceState Datos de estado del fragmento.
      */
-    // TODO: Rename and change types and number of parameters
-    public static ExitFragment newInstance(String param1, String param2) {
-        ExitFragment fragment = new ExitFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
-
-
+    /**
+     * Método llamado para crear y devolver la vista del fragmento.
+     * Infla el diseño del fragmento y configura los elementos de la interfaz de usuario.
+     *
+     * @param inflater           Inflador utilizado para inflar la vista.
+     * @param container          Contenedor que contendrá la vista del fragmento.
+     * @param savedInstanceState Datos de estado del fragmento.
+     * @return La vista del fragmento.
+     */
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflar el diseño del fragmento
         View view = inflater.inflate(R.layout.fragment_exit, container, false);
 
-        // Obtener la referencia al botón de salida
-        Button exitButton = view.findViewById(R.id.exit);
+        // Aquí puedes agregar cualquier lógica adicional que necesites para el fragmento de salida
+        firebaseAuth = FirebaseAuth.getInstance();
 
-        // Agregar un OnClickListener al botón
-        exitButton.setOnClickListener(new View.OnClickListener() {
+        // Configurar el listener para el botón de salida
+        view.findViewById(R.id.buttonSalir).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Cerrar la aplicación cuando se pulsa el botón de salida
-                getActivity().finishAffinity();
+                logOut();
             }
         });
 
         return view;
+    }
+
+    /**
+     * Método para cerrar sesión y regresar a la pantalla de inicio de sesión.
+     */
+    private void logOut() {
+        // Cerrar sesión utilizando Firebase Authentication
+        firebaseAuth.signOut();
+        // Navegar de vuelta a la pantalla de inicio de sesión
+        backToLogin();
+    }
+
+    /**
+     * Método para iniciar una nueva actividad que represente la pantalla de inicio de sesión.
+     */
+    private void backToLogin() {
+        Intent intent = new Intent(getActivity(), activity_login.class);
+        startActivity(intent);
     }
 }
