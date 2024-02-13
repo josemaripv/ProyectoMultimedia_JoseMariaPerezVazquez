@@ -1,4 +1,4 @@
-# Proyecto Final Multimedia 
+# Proyecto Final Multimedia
 
 Aplicación de Android Studio consumiento una API con un sistema de logueo a través de Google,
 con un Home donde aparece una lista con los elementos de la API, CRUD y una ventana para volver
@@ -209,23 +209,23 @@ La clase `ViewHolder` actúa como un contenedor para las vistas de cada elemento
 ## Uso del Fragmento
 
 1. **Inflar el diseño del fragmento:**
-   - Se utiliza el método `onCreateView` para inflar el diseño del fragmento.
+    - Se utiliza el método `onCreateView` para inflar el diseño del fragmento.
 
 2. **Inicializar elementos de la interfaz de usuario:**
-   - Los campos de texto (`nameText`, `descriptionText`, `editTextUrlImagen`) y el botón (`button`) se inicializan en `onCreateView`.
+    - Los campos de texto (`nameText`, `descriptionText`, `editTextUrlImagen`) y el botón (`button`) se inicializan en `onCreateView`.
 
 3. **Manejar clics en el botón:**
-   - Al hacer clic en el botón, se recopilan los datos ingresados y se valida que todos los campos estén completos.
-   - Se crea un objeto `PersonajeDTO` con los datos ingresados.
-   - Se llama al método `create` para iniciar el proceso de creación del personaje.
+    - Al hacer clic en el botón, se recopilan los datos ingresados y se valida que todos los campos estén completos.
+    - Se crea un objeto `PersonajeDTO` con los datos ingresados.
+    - Se llama al método `create` para iniciar el proceso de creación del personaje.
 
 4. **Crear un nuevo personaje:**
-   - En el método `create`, se utiliza Retrofit para realizar una llamada al servidor y crear un nuevo personaje.
-   - Se muestra un mensaje de éxito en caso de respuesta exitosa.
+    - En el método `create`, se utiliza Retrofit para realizar una llamada al servidor y crear un nuevo personaje.
+    - Se muestra un mensaje de éxito en caso de respuesta exitosa.
 
 5. **Mostrar mensajes Toast:**
-   - El método `mostrarToast` se utiliza para mostrar mensajes de éxito o error en la interfaz de usuario.
-  
+    - El método `mostrarToast` se utiliza para mostrar mensajes de éxito o error en la interfaz de usuario.
+
 ![](img/añadirToastSinRellenar.png)
 
 
@@ -260,7 +260,7 @@ La clase `ViewHolder` actúa como un contenedor para las vistas de cada elemento
 - Obtiene los valores de los campos de entrada, verifica si están vacíos y crea un objeto `PersonajeDTO` con los datos proporcionados.
 - Llama al método `CRUDInterface#actualizar` para realizar la actualización.
 - Muestra un Toast indicando el resultado de la operación.
-  
+
 ![](img/actualizarBien.png) ![](img/personajeActualizado.png)
 
 
@@ -271,19 +271,19 @@ La clase `ViewHolder` actúa como un contenedor para las vistas de cada elemento
 ## Uso del Fragmento
 
 1. **Inflar el diseño del fragmento:**
-   - Se utiliza el método `onCreateView` para inflar el diseño del fragmento y configurar los elementos de la interfaz de usuario.
+    - Se utiliza el método `onCreateView` para inflar el diseño del fragmento y configurar los elementos de la interfaz de usuario.
 
 2. **Inicializar elementos de la interfaz de usuario y Retrofit:**
-   - Los campos de texto (`nameText`, `descriptionText`, `editTextUrlImagen`, `idText`) y Retrofit se inicializan en `onCreateView`.
+    - Los campos de texto (`nameText`, `descriptionText`, `editTextUrlImagen`, `idText`) y Retrofit se inicializan en `onCreateView`.
 
 3. **Manejar clics en el botón:**
-   - Al hacer clic en el botón, se llama al método `actualizar` para realizar la actualización del personaje.
+    - Al hacer clic en el botón, se llama al método `actualizar` para realizar la actualización del personaje.
 
 4. **Actualizar un personaje:**
-   - En el método `actualizar`, se obtienen los valores de los campos de entrada, se verifica si están vacíos y se crea un objeto `PersonajeDTO`.
-   - Se llama al método `CRUDInterface#actualizar` para realizar la actualización.
-   - Se muestra un Toast indicando el resultado de la operación si ha sido exitoso o fallido.
-![](img/toastActualizar.png)
+    - En el método `actualizar`, se obtienen los valores de los campos de entrada, se verifica si están vacíos y se crea un objeto `PersonajeDTO`.
+    - Se llama al método `CRUDInterface#actualizar` para realizar la actualización.
+    - Se muestra un Toast indicando el resultado de la operación si ha sido exitoso o fallido.
+      ![](img/toastActualizar.png)
 
 ## Pantalla Eliminar Personaje
 
@@ -315,7 +315,7 @@ La clase `ViewHolder` actúa como un contenedor para las vistas de cada elemento
 - Construye la instancia de Retrofit y crea la interfaz CRUDInterface.
 - Llama al método de borrado con el ID del personaje.
 - Muestra un Toast indicando el resultado de la operación.
-  
+
 ![](img/eliminarBien.png) ![](img/perosonajeEliminado.png) ![](img/toastEliminar.png)
 
 
@@ -327,15 +327,15 @@ La clase `ViewHolder` actúa como un contenedor para las vistas de cada elemento
 ## Uso del Fragmento
 
 1. **Inflar el diseño del fragmento:**
-   - Se utiliza el método `onCreateView` para inflar el diseño del fragmento y configurar los elementos de la interfaz de usuario.
+    - Se utiliza el método `onCreateView` para inflar el diseño del fragmento y configurar los elementos de la interfaz de usuario.
 
 2. **Configurar el botón de borrado:**
-   - El botón se configura para manejar clics del usuario y llama al método `delete` para realizar la eliminación del personaje.
+    - El botón se configura para manejar clics del usuario y llama al método `delete` para realizar la eliminación del personaje.
 
 3. **Eliminar un personaje:**
-   - Al hacer clic en el botón, se obtiene el ID ingresado por el usuario.
-   - Se llama al método `delete` con el ID del personaje.
-   - Se muestra un Toast indicando el resultado de la operación.
+    - Al hacer clic en el botón, se obtiene el ID ingresado por el usuario.
+    - Se llama al método `delete` con el ID del personaje.
+    - Se muestra un Toast indicando el resultado de la operación.
 
 ## Pantalla Cerra Sesión
 
@@ -378,12 +378,12 @@ La clase `ViewHolder` actúa como un contenedor para las vistas de cada elemento
 
 - Método llamado al crear la actividad.
 - Configura la interfaz de usuario y la navegación en la actividad principal.
-  - Obtiene la referencia al `BottomNavigationView` desde el diseño.
-  - Establece el fragmento de inicio como seleccionado.
-  - Obtiene el fragmento de navegación anidado.
-  - Obtiene el controlador de navegación asociado al fragmento de navegación.
-  - Configura el listener para los elementos del `BottomNavigationView`, navegando al fragmento correspondiente según el elemento seleccionado.
- 
+    - Obtiene la referencia al `BottomNavigationView` desde el diseño.
+    - Establece el fragmento de inicio como seleccionado.
+    - Obtiene el fragmento de navegación anidado.
+    - Obtiene el controlador de navegación asociado al fragmento de navegación.
+    - Configura el listener para los elementos del `BottomNavigationView`, navegando al fragmento correspondiente según el elemento seleccionado.
+
 ## Dependencias
 
 - **AndroidX AppCompat**: Biblioteca que brinda compatibilidad con versiones antiguas de Android, permitiendo el uso de las últimas características en dispositivos más antiguos.
@@ -401,7 +401,7 @@ La clase `ViewHolder` actúa como un contenedor para las vistas de cada elemento
 - **Fragment**: Biblioteca que facilita la creación de interfaces de usuario modulares en Android.
 
 - **JUnit**:  Permite escribir y ejecutar pruebas para verificar el correcto funcionamiento de unidades individuales de código, como métodos o clases
-  
+
 - **Firebase Authentication**: Servicio de autenticación proporcionado por Firebase para la gestión de usuarios en la aplicación.
 
 - **Google Play Services Auth**: Librería de servicios de Google Play para la autenticación.
