@@ -66,7 +66,7 @@ Nosotros usamos el de Google como hemos mencionado anteriormente.
 - Utiliza Firebase Authentication para manejar la autenticación de usuarios.
 - Utiliza la API de Google SignIn para permitir que los usuarios inicien sesión con sus cuentas de Google.
 
-## Flujo Típico de la Aplicación
+## Flujo de la Aplicación
 
 ### Inicio de Sesión con Google:
 1. El usuario hace clic en el botón de inicio de sesión con Google.
