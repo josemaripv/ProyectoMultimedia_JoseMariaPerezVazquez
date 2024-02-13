@@ -19,7 +19,72 @@ en una aplicación. La aplicación permite a los usuarios iniciar sesión de dos
 credenciales de usuario (nombre de usuario y contraseña) o mediante el inicio de sesión de Google.
 Nosotros usamos el de Google como hemos mencionado anteriormente.
 
+## Estructura general de la clase
 
+### Atributos y Variables de Instancia:
+- `usuario`: Campo de texto para el nombre de usuario.
+- `contraseña`: Campo de texto para la contraseña.
+- `RC_SIGN_IN`: Código de solicitud para el inicio de sesión con Google.
+- `mGoogleSignInClient`: Cliente para el inicio de sesión con Google.
+- `mAuth`: Objeto de Firebase Authentication.
+- `TAG`: Etiqueta para mensajes de registro (log).
+- `signInButton`: Botón de inicio de sesión con Google.
+
+### Métodos:
+
+#### `onCreate`
+- Inicializa los componentes de la interfaz de usuario.
+- Configura el botón de inicio de sesión con Google.
+- Configura Firebase Authentication y el cliente de inicio de sesión con Google.
+
+#### `onStart`
+- Verifica si el usuario ya ha iniciado sesión y actualiza la interfaz de usuario en consecuencia.
+
+#### `signIn`
+- Inicia el proceso de inicio de sesión con Google.
+
+#### `onActivityResult`
+- Verifica el resultado de la operación de inicio de sesión con Google y realiza la autenticación en Firebase si la operación fue exitosa.
+
+#### `firebaseAuthWithGoogle`
+- Autentica al usuario en Firebase utilizando la credencial de Google.
+
+#### `updateUI`
+- Actualiza la interfaz de usuario después de un inicio de sesión (o fallo) exitoso.
+- Muestra un Toast de "Inicio de sesión exitoso" en caso de éxito.
+- Verifica si el cierre de sesión fue la causa para evitar mostrar el Toast en ese caso.
+- Muestra un Toast de "Inicio de sesión fallido" en caso de fallo.
+
+#### `goHome`
+- Redirige a la pantalla principal (MainActivity) después de un inicio de sesión exitoso.
+
+#### `login`
+- Invocado al hacer clic en el botón de inicio de sesión con credenciales de usuario.
+- Verifica las credenciales ("admin/admin") y redirige al usuario a la pantalla principal si son correctas.
+
+## Uso de Firebase Authentication y Google SignIn
+- Utiliza Firebase Authentication para manejar la autenticación de usuarios.
+- Utiliza la API de Google SignIn para permitir que los usuarios inicien sesión con sus cuentas de Google.
+
+## Flujo Típico de la Aplicación
+
+### Inicio de Sesión con Google:
+1. El usuario hace clic en el botón de inicio de sesión con Google.
+2. Se inicia la actividad de inicio de sesión con Google.
+3. El resultado de la operación se maneja en `onActivityResult`.
+4. Si es exitoso, se autentica al usuario en Firebase.
+
+### Inicio de Sesión con Credenciales de Usuario:
+1. El usuario ingresa las credenciales (nombre de usuario y contraseña).
+2. Se verifica si las credenciales son correctas.
+3. Si son correctas, se redirige al usuario a la pantalla principal.
+
+### Manejo de Sesión:
+- `onStart` verifica si el usuario ya ha iniciado sesión y actualiza la interfaz de usuario en consecuencia.
+- `updateUI` maneja la actualización de la interfaz después del inicio de sesión o cierre de sesión.
+
+## Consideraciones
+- Se muestra un Toast para informar al usuario sobre el estado del inicio de sesión.
 
 ## Pantalla Home (Fragment)
 
